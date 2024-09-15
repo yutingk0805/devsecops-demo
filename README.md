@@ -1,5 +1,3 @@
-# devsecops-demo
-
 # DevSecOps Terraform Demo
 
 This repository demonstrates a simple 3-tier AWS infrastructure using Terraform, with built-in security checks implemented through Python. The infrastructure and code follow DevSecOps practices by running scans before deployment to ensure secure configurations are used.

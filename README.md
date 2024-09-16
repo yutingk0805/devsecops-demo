@@ -27,7 +27,8 @@ The table below outlines the security controls that the Python script checks bef
 
    - A simple AWS architecture consisting of an EC2 instance, RDS database, S3 bucket, and associated IAM Role and security groups.
    - Infrastructure is defined using Terraform templates located in the `demo-infra/` directory.
-   - NOTE: this design is not fully functional and secure. The focus of this repository is to show you how embedding security scans in your SDLC can prevent you from deploying vulnerable and misconfigured infrastructure to your enviroment and help you fix them at an early stage.
+   - NOTE: this design is not fully functional and secure. The focus of this repository is to show you how embedding security scans in your SDLC can prevent you from deploying vulnerable and misconfigured infrastructure to your enviroment and help you fix them at an early stage. NEVER use this design directly in your production environment!
+   
      ![DevSecOps Demo Infra](devsecops-demo.drawio.svg)
 
 2. **Security Scans**:

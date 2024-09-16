@@ -25,8 +25,10 @@ The table below outlines the security controls that the Python script checks bef
 
 1. **Infrastructure Design**:
 
-   - A simple AWS architecture consisting of an EC2 instance, RDS database, S3 bucket, and associated security groups.
+   - A simple AWS architecture consisting of an EC2 instance, RDS database, S3 bucket, and associated IAM Role and security groups.
    - Infrastructure is defined using Terraform templates located in the `demo-infra/` directory.
+   - NOTE: this design is not fully functional and secure. The focus of this repository is to show you how embedding security scans in your SDLC can prevent you from deploying vulnerable and misconfigured infrastructure to your enviroment and help you fix them at an early stage.
+     ![DevSecOps Demo Infra](devsecops-demo.drawio.svg)
 
 2. **Security Scans**:
 
@@ -42,6 +44,12 @@ The table below outlines the security controls that the Python script checks bef
      - Proceed automatically if only **low** severity issues are found.
 
 ## Usage
+
+### Configure your local environment variables for the following:
+
+   - TF_VAR_vpc_id
+   - TF_VAR_db_password
+   - TF_VAR_db_username
 
 ### Initialize Terraform
 
@@ -82,3 +90,7 @@ Tear down the infrastructure:
 ```bash
 make destroy
 ```
+
+### Try Out Different Configurations
+
+For all the 6 controls, I have provided both vulnerable and secured related configurations (See comments in the Terraform templates). Try to play with different configurations and see how the Python script will react!

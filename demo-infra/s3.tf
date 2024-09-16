@@ -5,7 +5,7 @@ resource "aws_s3_bucket" "bucket" {
 
 }
 
-# Secure configuration:
+# Secure configuration (commeneted out):
 resource "aws_s3_bucket_server_side_encryption_configuration" "sse" {
   bucket = aws_s3_bucket.bucket.id
 

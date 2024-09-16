@@ -1,3 +1,6 @@
-variable "vpc_id" {
-  default = "vpc-085f14b2f25d902a8"
-}
+variable "vpc_id" {}
+
+variable "db_username" {}
+
+variable "db_password" {}
+

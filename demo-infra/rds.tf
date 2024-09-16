@@ -3,8 +3,8 @@ resource "aws_db_instance" "mysql" {
   engine                 = "mysql"
   instance_class         = "db.t3.micro"
   db_name                = "mydb"
-  username               = "foo"
-  password               = "foobarbaz"
+  username               = var.db_username
+  password               = var.db_password
   publicly_accessible    = false
   multi_az               = false
   db_subnet_group_name   = aws_db_subnet_group.default.id

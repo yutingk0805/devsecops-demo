@@ -48,7 +48,7 @@ The table below outlines the security controls that the Python script checks bef
 
 ### Configure your local environment variables for the following:
 
-   - TF_VAR_vpc_id
+   - TF_VAR_vpc_id (You will need to have a VPC in place already, and it needs to include both public and private subnets.)
    - TF_VAR_db_password
    - TF_VAR_db_username
 

@@ -36,39 +36,39 @@ resource "aws_iam_role" "ec2_role" {
   })
 
   # Deliberately vulnerable IAM Policy (Full Admin Access)
-  # inline_policy {
-  #   name = "admin-policy"
-  #   policy = jsonencode({
-  #     Version = "2012-10-17",
-  #     Statement = [
-  #       {
-  #         Action   = "*",
-  #         Effect   = "Allow",
-  #         Resource = "*"
-  #       }
-  #     ]
-  #   })
-  # }
-
-  # Secure policy (commented out)
   inline_policy {
-    name = "s3-rds-policy"
+    name = "admin-policy"
     policy = jsonencode({
       Version = "2012-10-17",
       Statement = [
         {
-          Action   = ["s3:PutObject", "s3:GetObject"],
+          Action   = "*",
           Effect   = "Allow",
-          Resource = "${aws_s3_bucket.bucket.arn}/*"
-        },
-        {
-          Action   = ["rds:PutItem"],
-          Effect   = "Allow",
-          Resource = aws_db_instance.mysql.arn
+          Resource = "*"
         }
       ]
     })
   }
+
+  # Secure policy (commented out)
+  # inline_policy {
+  #   name = "s3-rds-policy"
+  #   policy = jsonencode({
+  #     Version = "2012-10-17",
+  #     Statement = [
+  #       {
+  #         Action   = ["s3:PutObject", "s3:GetObject"],
+  #         Effect   = "Allow",
+  #         Resource = "${aws_s3_bucket.bucket.arn}/*"
+  #       },
+  #       {
+  #         Action   = ["rds:PutItem"],
+  #         Effect   = "Allow",
+  #         Resource = aws_db_instance.mysql.arn
+  #       }
+  #     ]
+  #   })
+  # }
 }
 
 resource "aws_iam_instance_profile" "ec2_instance_profile" {
